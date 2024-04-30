@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}<br/>
+
+{% if records %}
+<h3 >Customer Deleted Records </h3>
+
+<table class="table table-striped table-hover table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Address</th>
+        <th scope="col">City</th>
+        <th scope="col">State</th>
+        <th scope="col">postcode</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      
+  
+      {% for record in records %}
+          <tr>
+              <td>{{ record.first_name }} {{ record.last_name }}</td>
+              <td>{{ record.email }}</td>
+              <td>{{ record.phone }}</td>
+              <td>{{ record.address }}</td>
+              <td>{{ record.city }}</td>
+              <td>{{ record.state }}</td>
+              <td>{{ record.postcode }}</td>
+          </tr>
+      {% endfor %}
+        </tbody>
+      </table>
+
+      {% else %}
+
+    </h3>No Records were Deleted...</h3>
+
+  {% endif %}
+
+{% endblock %}
